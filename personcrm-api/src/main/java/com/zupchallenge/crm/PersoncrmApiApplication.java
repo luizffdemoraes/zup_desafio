@@ -12,7 +12,8 @@ import com.zupchallenge.crm.repository.ClienteRepository;
 @SpringBootApplication
 public class PersoncrmApiApplication {
 	
-	@Bean
+	/**
+	 @Bean
 	public CommandLineRunner runner(@Autowired ClienteRepository repository) {
 		return args -> {
 			Cliente cliente = Cliente.builder()
@@ -26,6 +27,8 @@ public class PersoncrmApiApplication {
 			
 		};
 	}
+	 */
+	
 
 	public static void main(String[] args) {
 		SpringApplication.run(PersoncrmApiApplication.class, args);
