@@ -2,7 +2,7 @@ package com.zupchallenge.crm.controller;
 
 import java.util.List;
 import java.util.stream.Collectors;
-import java.util.stream.Stream;
+
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -33,10 +33,10 @@ public class ApplicationControllerAdvice {
 	}
 	
 	@ExceptionHandler(ResponseStatusException.class)
-	public ResponseEntity handleResponseStatusException(ResponseStatusException ex) {
+	public ResponseEntity<ApiErrors> handleResponseStatusException(ResponseStatusException ex) {
 		String messagemError = ex.getMessage();
 		HttpStatus codigoStatus = ex.getStatus();
 		ApiErrors apiErrors = new ApiErrors(messagemError);
-		return new ResponseEntity(apiErrors, codigoStatus);
+		return new ResponseEntity<ApiErrors>(apiErrors, codigoStatus);
 	}
 }
